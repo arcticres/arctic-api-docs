@@ -1,6 +1,6 @@
 ## Get trip type object
 
-This endpoint allows you to batch update availability information for a trip type. The request includes an array of trip start dates and times. By default, Arctic will make the necessary changes so that the trip calendar in Arctic matches the provided list of start dates and times, including creating trips, updating openings and canceling trips.
+You can fetch a specific trip type object by ID.
 
 ```php
 <?php

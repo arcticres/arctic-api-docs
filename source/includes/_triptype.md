@@ -36,7 +36,7 @@
     "socialsite": "trip",
     "pricinglevels": [
         {
-            "parenttable": "TripTypes",
+            "parenttype": "triptype",
             "parentid": 1,
             "id": 1,
             "name": "Adult",
@@ -51,7 +51,7 @@
             "deleted": false
         },
         {
-            "parenttable": "TripTypes",
+            "parenttype": "triptype",
             "parentid": 1,
             "id": 2,
             "name": "Youth",
@@ -68,7 +68,7 @@
     ],
     "components": [
         {
-            "parenttable": "TripTypes",
+            "parenttype": "triptype",
             "parentid": 1,
             "id": 1,
             "name": "T-shirt",
