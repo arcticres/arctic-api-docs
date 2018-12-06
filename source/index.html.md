@@ -10,6 +10,8 @@ toc_footers:
   - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
 
 includes:
+  - triptype
+  - triptype_get
   - triptype_availability
 
 search: true

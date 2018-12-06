@@ -31,7 +31,7 @@ $response = $trip_type->updateAvailability([
 ```
 
 ```shell
-curl "http://example.com/api/kittens/2"
+curl "https://outfitter.arcticres.com/api/rest/triptype/1/availability"
   -H "Authorization: Bearer token"
   -H "Content-Type: application/json"
   -d @request.json
