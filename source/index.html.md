@@ -2,8 +2,8 @@
 title: API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
   - php
+  - shell
 
 toc_footers:
   - <a href='https://github.com/arcticres/arctic-api'>PHP Framework</a>

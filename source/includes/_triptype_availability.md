@@ -3,6 +3,8 @@
 This endpoint allows you to batch update availability information for a trip type. The request includes an array of trip start dates and times. By default, Arctic will make the necessary changes so that the trip calendar in Arctic matches the provided list of start dates and times, including creating trips, updating openings and canceling trips.
 
 ```php
+<?php
+
 require 'init.i.php';
 
 $trip_type = \Arctic\Model\Trip\TripType::load(1);
@@ -35,7 +37,7 @@ curl "http://example.com/api/kittens/2"
   -d @request.json
 ```
 
-> The availability function takes a JavaScript payload as follows:
+> The availability function takes a JSON payload. For example:
 
 ```json
 {
@@ -61,7 +63,7 @@ curl "http://example.com/api/kittens/2"
 }
 ```
 
-> The above payload may generate the following result:
+> The above request might generate the following response:
 
 ```json
 {
@@ -93,13 +95,13 @@ curl "http://example.com/api/kittens/2"
 
 ### HTTP Request
 
-`POST https://outfitter.arcticres.com/api/rest/triptype/<ID>/availability`
+`POST https://outfitter.arcticres.com/api/rest/triptype/<id>/availability`
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-ID | The ID of the trip type
+Parameter | Type | Default | Description
+--------- | ---- | ------- | -----------
+id | int | *required* | The ID of the trip type.
 
 ### Body Attributes
 
