@@ -236,6 +236,17 @@
                   </li>
               </ul>
           </li>
+          <li>
+            <a href="#log" class="toc-h1 toc-link" data-title="Log">Log</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#query-log-entries" class="toc-h2 toc-link" data-title="Query log entries">Query log entries</a>
+                  </li>
+                  <li>
+                    <a href="#log-entry-object" class="toc-h2 toc-link" data-title="Log entry object">Log entry object</a>
+                  </li>
+              </ul>
+          </li>
       </ul>
         <ul class="toc-footer">
             <li><a href='https://github.com/arcticres/arctic-api'>PHP Framework</a></li>
@@ -284,7 +295,7 @@
     </span><span class="s2">"socialsite"</span><span class="p">:</span><span class="w"> </span><span class="s2">"trip"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"pricinglevels"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"parenttable"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TripTypes"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"parenttype"</span><span class="p">:</span><span class="w"> </span><span class="s2">"triptype"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"parentid"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Adult"</span><span class="p">,</span><span class="w">
@@ -299,7 +310,7 @@
             </span><span class="s2">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"parenttable"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TripTypes"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"parenttype"</span><span class="p">:</span><span class="w"> </span><span class="s2">"triptype"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"parentid"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Youth"</span><span class="p">,</span><span class="w">
@@ -316,7 +327,7 @@
     </span><span class="p">],</span><span class="w">
     </span><span class="s2">"components"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"parenttable"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TripTypes"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"parenttype"</span><span class="p">:</span><span class="w"> </span><span class="s2">"triptype"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"parentid"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"T-shirt"</span><span class="p">,</span><span class="w">
@@ -510,7 +521,7 @@
 </tr>
 </tbody></table>
 <h2 id='get-trip-type-object'>Get trip type object</h2>
-<p>This endpoint allows you to batch update availability information for a trip type. The request includes an array of trip start dates and times. By default, Arctic will make the necessary changes so that the trip calendar in Arctic matches the provided list of start dates and times, including creating trips, updating openings and canceling trips.</p>
+<p>You can fetch a specific trip type object by ID.</p>
 <pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 
 <span class="k">require</span> <span class="s1">'init.i.php'</span><span class="p">;</span>
@@ -801,6 +812,174 @@
 <td>has_reservations</td>
 <td>boolean</td>
 <td>Whether or not a trip had reservations (when canceling a trip).</td>
+</tr>
+</tbody></table>
+<h1 id='log'>Log</h1><h2 id='query-log-entries'>Query log entries</h2><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="k">require</span> <span class="s1">'init.i.php'</span><span class="p">;</span>
+
+<span class="c1">// not yet available via the PHP API
+</span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://outfitter.arcticres.com/api/rest/log?models=reservation,activity"</span>
+  -H <span class="s2">"Authorization: Bearer token"</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<blockquote>
+<p>The above request might generate the following response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"log"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"34468:6"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-18 14:36:44"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"update"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reservation"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"modelid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1456"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"delta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="kc">true</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="s2">"allocations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">[</span><span class="w">
+                    </span><span class="mi">3264</span><span class="p">,</span><span class="w">
+                    </span><span class="mi">3265</span><span class="p">,</span><span class="w">
+                    </span><span class="mi">3266</span><span class="w">
+                </span><span class="p">],</span><span class="w">
+                </span><span class="p">[]</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://outfitter.arcticres.com/api/rest/log?models=reservation,activity&amp;before_id=34468:6"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The <code>log</code> response contains an array of log entries describing edits that were made in Arctic Reservations, filtering the results based on the provided query parameters. Log entries allow replaying or analyzing a set of changes. Log entries are available for 14 days, and can be queried in either ascending or descending order. </p>
+
+<p>Because only a limited number of log entries are available via the API, pagination works differently than the standard implementation in other parts of the API. The API response includes the URL to receive the next page of results.</p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>models</td>
+<td>array or string</td>
+<td><em>required</em></td>
+<td>An array or comma separated string of model names desired.</td>
+</tr>
+<tr>
+<td>before</td>
+<td>datetime</td>
+<td><em>none</em></td>
+<td>If specified, will return log events that occurred on or before this time.</td>
+</tr>
+<tr>
+<td>before_id</td>
+<td>string</td>
+<td><em>none</em></td>
+<td>If specified, will return log events that occurred immediately before the log event ID.</td>
+</tr>
+<tr>
+<td>after</td>
+<td>datetime</td>
+<td><em>none</em></td>
+<td>If specified, will return log events that occurred on or after this time.</td>
+</tr>
+<tr>
+<td>after_id</td>
+<td>string</td>
+<td><em>none</em></td>
+<td>If specified, will return log events that occurred immediately after the log event ID.</td>
+</tr>
+</tbody></table>
+
+<p>If &quot;before&quot; or &quot;before_id&quot; are specified, the log entries are returned in descending order (newest to oldest). If &quot;after&quot; or &quot;after_id&quot; are specified, the log entries are returned in ascending order (oldest to newest). If neither are specified, the API returns the most recent entries in descending order.</p>
+<h3 id='attributes'>Attributes</h3>
+<p>The log entry object includes the following attributes.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>log</td>
+<td>array</td>
+<td>An array of <a href="#log-entry-object">log entry objects</a></td>
+</tr>
+<tr>
+<td>next</td>
+<td>string or null</td>
+<td>If applicable, the API URL to generate the next page of log entries.</td>
+</tr>
+</tbody></table>
+<h2 id='log-entry-object'>Log entry object</h2><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"34468:6"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-18 14:36:44"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"update"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reservation"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"modelid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1456"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"delta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="kc">true</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"allocations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">[</span><span class="w">
+                </span><span class="mi">3264</span><span class="p">,</span><span class="w">
+                </span><span class="mi">3265</span><span class="p">,</span><span class="w">
+                </span><span class="mi">3266</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="p">[]</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The <code>log</code> object describes a set of changes to a model. </p>
+<h3 id='attributes-2'>Attributes</h3>
+<p>The log entry object includes the following attributes.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>A unique ID for the log entry, composed of two numbers separated by a colon.</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>datetime</td>
+<td>The time when the event occurred.</td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>Describes the type of changes made. Specifically: &quot;create&quot; if the model was created, &quot;update&quot; if an existing model was updated, &quot;remove&quot; if an existing model was deleted, or &quot;note&quot; for other events.</td>
+</tr>
+<tr>
+<td>model</td>
+<td>string</td>
+<td>The type of model.</td>
+</tr>
+<tr>
+<td>modelid</td>
+<td>int</td>
+<td>The unique ID of the model.</td>
+</tr>
+<tr>
+<td>delta</td>
+<td>object</td>
+<td>(Optional.) For &quot;update&quot; events, this object describes the changes that were made to the model.</td>
 </tr>
 </tbody></table>
 
