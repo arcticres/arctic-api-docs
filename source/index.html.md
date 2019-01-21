@@ -13,6 +13,7 @@ includes:
   - triptype
   - triptype_get
   - triptype_availability
+  - log
 
 search: true
 ---
