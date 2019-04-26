@@ -223,6 +223,17 @@
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
           </li>
           <li>
+            <a href="#accounting" class="toc-h1 toc-link" data-title="Accounting">Accounting</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#accounting-sale-object" class="toc-h2 toc-link" data-title="Accounting sale object">Accounting sale object</a>
+                  </li>
+                  <li>
+                    <a href="#accounting-transaction-object" class="toc-h2 toc-link" data-title="Accounting transaction object">Accounting transaction object</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#trip-type" class="toc-h1 toc-link" data-title="Trip type">Trip type</a>
               <ul class="toc-list-h2">
                   <li>
@@ -262,6 +273,142 @@
 <p>We have a flexible <a href="https://github.com/arcticres/arctic-api">PHP implementation of the API</a>, but the documentation provides more general instructions should you want to implement a custom implementation or use a different language.</p>
 
 <p>This documentation is a new project, and is in the early stages. More information will be added soon.</p>
+<h1 id='accounting'>Accounting</h1><h2 id='accounting-sale-object'>Accounting sale object</h2><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"invoiceitemgroupid"</span><span class="p">:</span><span class="w"> </span><span class="mi">882</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4235</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"accountid"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"businessgroupid"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.14"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"accrualdate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-22"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-22 21:10:20"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The <code>accountingsale</code> object describes a line item that was added / removed to an invoice, irrespective of whether any transactions have taken place. For example, positive amounts indicate a line item or charge were added to an invoice (e.g., a guest booked an activity), while negative amounts indicate a line item or charge was removed from an invoice (e.g., an activity was canceled or a discount was added).</p>
+
+<p><strong>Note:</strong> Accounting records do not change. After an entry is added, it will not change or be deleted. If subsequent accounting changes are made, new entries will be added to make the appropriate adjustments.</p>
+<h3 id='attributes'>Attributes</h3>
+<p>The response returns a trip type object. </p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>invoiceitemgroupid</td>
+<td>int</td>
+<td>The invoice group (section) that produced the line item.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>int</td>
+<td>A unique ID for the accounting sale.</td>
+</tr>
+<tr>
+<td>accountid</td>
+<td>int</td>
+<td>The account ID for the line item.</td>
+</tr>
+<tr>
+<td>businessgroupid</td>
+<td>int</td>
+<td>The business group ID for the line item. Will correspond with activity business group in most cases.</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>decimal</td>
+<td>String representation of amount.</td>
+</tr>
+<tr>
+<td>accrualdate</td>
+<td>date</td>
+<td>The accrual date for the charge. Will correspond with activity start date if associated with an activity.</td>
+</tr>
+<tr>
+<td>time</td>
+<td>datetime</td>
+<td>The date and time when the adjustment was made.</td>
+</tr>
+</tbody></table>
+<h2 id='accounting-transaction-object'>Accounting transaction object</h2><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"transactionid"</span><span class="p">:</span><span class="w"> </span><span class="mi">398</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">630</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"accountid"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"businessgroupid"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transactiondate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-05 16:30:57"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"accrualdate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-05"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7.25"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"exported"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"reportid"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"createdon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-18 19:25:24"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The <code>accountingtransaction</code> object describes how income was allocate towards previous line item charges (see <a href="#accounting-sale-object">line item API details</a> for more details). That is, when a transaction occurs (payment or refund), the income will be applied to or credited from the line items on the invoice, generating new accounting transaction records.</p>
+
+<p><strong>Note:</strong> Accounting records do not change. After an entry is added, it will not change or be deleted. If subsequent accounting changes are made, new entries will be added to make the appropriate adjustments.</p>
+<h3 id='attributes'>Attributes</h3>
+<p>The response returns a trip type object. </p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>transactionid</td>
+<td>int</td>
+<td>The transaction ID that is being applied.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>int</td>
+<td>A unique ID for the accounting transaction.</td>
+</tr>
+<tr>
+<td>accountid</td>
+<td>int</td>
+<td>The account ID that the income is being applied to / credited from.</td>
+</tr>
+<tr>
+<td>businessgroupid</td>
+<td>int</td>
+<td>The business group ID the income is being applied to / credited from. Will correspond with activity business group in most cases.</td>
+</tr>
+<tr>
+<td>transactiondate</td>
+<td>datetime</td>
+<td>The date and time that the transaction was processed.</td>
+</tr>
+<tr>
+<td>accrualdate</td>
+<td>date</td>
+<td>The accrual date for the charge. Will correspond with activity start date if associated with an activity.</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>decimal</td>
+<td>String representation of amount.</td>
+</tr>
+<tr>
+<td>exported</td>
+<td>boolean</td>
+<td>Whether or not the entry has been exported via the end of day balance report.</td>
+</tr>
+<tr>
+<td>reportid</td>
+<td>int</td>
+<td>The ID of the end of day balance report where this allocation appeared.</td>
+</tr>
+<tr>
+<td>createdon</td>
+<td>datetime</td>
+<td>The date and time when the allocation was made.</td>
+</tr>
+</tbody></table>
 <h1 id='trip-type'>Trip type</h1><h2 id='trip-type-object'>Trip type object</h2><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"businessgroupid"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">"parenttripid"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
