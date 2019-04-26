@@ -10,6 +10,9 @@ toc_footers:
   - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
 
 includes:
+  - accounting
+  - accounting_sale
+  - accounting_transaction
   - triptype
   - triptype_get
   - triptype_availability
