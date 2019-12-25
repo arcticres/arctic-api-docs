@@ -13,6 +13,10 @@ includes:
   - accounting
   - accounting_sale
   - accounting_transaction
+  - activity
+  - activity_status
+  - reservation
+  - reservation_edit
   - triptype
   - triptype_get
   - triptype_availability
