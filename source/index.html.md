@@ -16,6 +16,7 @@ includes:
   - activity
   - activity_status
   - reservation
+  - reservation_member
   - reservation_edit
   - triptype
   - triptype_get
