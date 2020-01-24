@@ -24,7 +24,6 @@ $reservation->insert();
 curl "https://outfitter.arcticres.com/api/rest/reservation"
   -H "Authorization: Bearer token"
   -H "Content-Type: application/json"
-  -X PUT
   -d @request.json
 ```
 
@@ -47,13 +46,7 @@ curl "https://outfitter.arcticres.com/api/rest/reservation"
 
 ### HTTP Request
 
-`PUT https://outfitter.arcticres.com/api/rest/reservation/<id>`
-
-### URL Parameters
-
-Parameter | Type | Default | Description
---------- | ---- | ------- | -----------
-id | int | *required* | The ID of the trip type.
+`POST https://outfitter.arcticres.com/api/rest/reservation`
 
 ### Body Attributes
 
@@ -99,6 +92,7 @@ $reservation->update();
 curl "https://outfitter.arcticres.com/api/rest/reservation/690"
   -H "Authorization: Bearer token"
   -H "Content-Type: application/json"
+  -X PUT
   -d @request.json
 ```
 
@@ -119,13 +113,13 @@ curl "https://outfitter.arcticres.com/api/rest/reservation/690"
 
 ### HTTP Request
 
-`POST https://outfitter.arcticres.com/api/rest/reservation/<id>`
+`PUT https://outfitter.arcticres.com/api/rest/reservation/<id>`
 
 ### URL Parameters
 
 Parameter | Type | Default | Description
 --------- | ---- | ------- | -----------
-id | int | *required* | The ID of the trip type.
+id | int | *required* | The ID of the reservation.
 
 ### Body Attributes
 
