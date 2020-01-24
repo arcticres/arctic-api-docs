@@ -894,6 +894,7 @@
 </code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://outfitter.arcticres.com/api/rest/reservation"</span>
   -H <span class="s2">"Authorization: Bearer token"</span>
   -H <span class="s2">"Content-Type: application/json"</span>
+  -X PUT
   -d @request.json
 </code></pre>
 <blockquote>
@@ -914,7 +915,7 @@
 <p>The above request will return the new reservation object object.</p>
 </blockquote>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>POST https://outfitter.arcticres.com/api/rest/reservation</code></p>
+<p><code>PUT https://outfitter.arcticres.com/api/rest/reservation/&lt;id&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
