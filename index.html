@@ -894,7 +894,6 @@
 </code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://outfitter.arcticres.com/api/rest/reservation"</span>
   -H <span class="s2">"Authorization: Bearer token"</span>
   -H <span class="s2">"Content-Type: application/json"</span>
-  -X PUT
   -d @request.json
 </code></pre>
 <blockquote>
@@ -915,23 +914,7 @@
 <p>The above request will return the new reservation object object.</p>
 </blockquote>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>PUT https://outfitter.arcticres.com/api/rest/reservation/&lt;id&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>int</td>
-<td><em>required</em></td>
-<td>The ID of the trip type.</td>
-</tr>
-</tbody></table>
+<p><code>POST https://outfitter.arcticres.com/api/rest/reservation</code></p>
 <h3 id='body-attributes'>Body Attributes</h3>
 <p>The response body can include properties of the <a href="#reservation-object">reservation object</a>, as well as the following additional attributes:</p>
 
@@ -996,6 +979,7 @@
 </code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://outfitter.arcticres.com/api/rest/reservation/690"</span>
   -H <span class="s2">"Authorization: Bearer token"</span>
   -H <span class="s2">"Content-Type: application/json"</span>
+  -X PUT
   -d @request.json
 </code></pre>
 <blockquote>
@@ -1014,8 +998,8 @@
 <p>The above request will return the updated reservation object object.</p>
 </blockquote>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>POST https://outfitter.arcticres.com/api/rest/reservation/&lt;id&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
+<p><code>PUT https://outfitter.arcticres.com/api/rest/reservation/&lt;id&gt;</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1028,7 +1012,7 @@
 <td>id</td>
 <td>int</td>
 <td><em>required</em></td>
-<td>The ID of the trip type.</td>
+<td>The ID of the reservation.</td>
 </tr>
 </tbody></table>
 <h3 id='body-attributes-2'>Body Attributes</h3>
