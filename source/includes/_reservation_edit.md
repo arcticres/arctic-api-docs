@@ -24,6 +24,7 @@ $reservation->insert();
 curl "https://outfitter.arcticres.com/api/rest/reservation"
   -H "Authorization: Bearer token"
   -H "Content-Type: application/json"
+  -X PUT
   -d @request.json
 ```
 
@@ -46,7 +47,7 @@ curl "https://outfitter.arcticres.com/api/rest/reservation"
 
 ### HTTP Request
 
-`POST https://outfitter.arcticres.com/api/rest/reservation`
+`PUT https://outfitter.arcticres.com/api/rest/reservation/<id>`
 
 ### URL Parameters
 
