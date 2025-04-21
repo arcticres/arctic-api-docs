@@ -41,3 +41,4 @@ createdon | datetime | The creation date.
 modifiedon | datetime | The modified date.
 createdbyuserid | int | The user ID who created the reservation.
 deleted | bool | If the pricing level was deleted.
+manageur | url | (Optional.) A personalized URL for the guest to manage their activity.
