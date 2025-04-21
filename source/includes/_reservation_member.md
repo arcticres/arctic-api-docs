@@ -16,6 +16,7 @@
   "modifiedon": "2019-12-24 15:19:53",
   "createdbyuserid": 0,
   "deleted": false
+  "manageurl": "http:\/\/reservations.rafting\/g\/AEkAX-w-ljgKiYPu\/manage\/A691"
 }
 ```
 
@@ -41,4 +42,4 @@ createdon | datetime | The creation date.
 modifiedon | datetime | The modified date.
 createdbyuserid | int | The user ID who created the reservation.
 deleted | bool | If the pricing level was deleted.
-manageur | url | (Optional.) A personalized URL for the guest to manage their activity.
+manageurl | url | (Optional.) A personalized URL for the guest to manage their activity.
